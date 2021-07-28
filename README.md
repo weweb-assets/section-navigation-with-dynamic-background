@@ -1,4 +1,4 @@
-# FIRSTBASE-NAVBAR
+# NAVIGATION WITH DYNAMIC BACKGROUND
 
 This is an section for [weweb.io](https://www.weweb.io/).
 

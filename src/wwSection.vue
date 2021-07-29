@@ -1,17 +1,7 @@
 <template>
     <div class="navigation-menu" :style="cssVariables">
-        <div
-            class="navigation-default"
-            :style="{ display: !isMenuDisplayed ? 'block' : 'none' }"
-            ww-responsive="desktop"
-        >
-            <wwLayout class="navigation-default__layout" path="navbarContent">
-                <template #default="{ item }">
-                    <wwLayoutItem>
-                        <wwElement v-bind="item" :states="states"></wwElement>
-                    </wwLayoutItem>
-                </template>
-            </wwLayout>
+        <div class="navigation-default">
+            <wwLayout class="navigation-default__layout" path="navbarContent"></wwLayout>
         </div>
     </div>
 </template>
@@ -20,14 +10,12 @@
 export default {
     props: {
         content: { type: Object, required: true },
-        wwFrontState: { type: Object, required: true },
     },
     wwDefaultContent: {
         navbarContent: [],
     },
     data() {
         return {
-            states: [],
             backgroundColor: this.content.backgroundColor,
             resizeObserver: null,
             resizeListenerHolder: null,

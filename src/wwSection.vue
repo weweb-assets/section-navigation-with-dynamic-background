@@ -17,6 +17,7 @@ export default {
     data() {
         return {
             backgroundColor: this.content.backgroundColor,
+            boxShadow: 'none',
             resizeObserver: null,
             resizeListenerHolder: null,
             scrollListenerHolder: null,
@@ -26,6 +27,7 @@ export default {
         cssVariables() {
             return {
                 '--backgroundColor': this.backgroundColor,
+                '--boxShadow': this.boxShadow,
             };
         },
     },
@@ -57,8 +59,10 @@ export default {
         scrollListener() {
             if (window.scrollY > 0) {
                 this.backgroundColor = this.content.backgroundColorWhenUserStartsScrolling;
+                this.boxShadow = '0px 1px 10px rgba(78, 50, 75, 0.2)';
             } else {
                 this.backgroundColor = this.content.backgroundColor;
+                this.boxShadow = 'none';
             }
         },
         removeListeners() {
@@ -79,6 +83,7 @@ export default {
     z-index: 9;
     display: flex;
     background-color: var(--backgroundColor);
+    box-shadow: var(--boxShadow);
     transition: all 300ms;
 
     .navigation-default {

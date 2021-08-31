@@ -33,15 +33,8 @@ export default {
     },
     mounted() {
         this.init();
-
-        this.resizeObserver = new ResizeObserver(() => {
-            this.getNavbarData();
-        });
-
-        this.resizeObserver.observe(this.$el);
     },
     beforeUnmount() {
-        this.resizeObserver.unobserve(this.$el);
         this.removeListeners();
     },
     methods: {
@@ -50,8 +43,6 @@ export default {
 
             if (!this.scrollListenerHolder)
                 this.scrollListenerHolder = document.addEventListener('scroll', this.refreshObservers);
-            if (!this.resizeListenerHolder)
-                this.resizeListenerHolder = document.addEventListener('resize', this.refreshObservers);
         },
         refreshObservers() {
             this.scrollListener();
@@ -68,8 +59,6 @@ export default {
         removeListeners() {
             if (this.scrollListenerHolder)
                 this.scrollListenerHolder = document.removeEventListener('scroll', this.refreshObservers);
-            if (this.resizeListenerHolder)
-                this.resizeListenerHolder = document.removeEventListener('resize', this.refreshObservers);
         },
     },
 };

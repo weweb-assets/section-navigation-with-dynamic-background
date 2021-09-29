@@ -11,9 +11,6 @@ export default {
     props: {
         content: { type: Object, required: true },
     },
-    wwDefaultContent: {
-        navbarContent: [],
-    },
     data() {
         return {
             backgroundColor: this.content.backgroundColor,

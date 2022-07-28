@@ -66,6 +66,7 @@ export default {
     --backgroundColor: rgb(250, 250, 250);
 
     position: fixed;
+    top: 0px;
     z-index: 9;
     display: flex;
     background-color: var(--backgroundColor);
